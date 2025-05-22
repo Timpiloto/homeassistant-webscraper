@@ -1,0 +1,39 @@
+name: "Web Scraper Telegram Bot"
+description: "Überwacht Webseiten nach 'Achteraus (€)' und sendet Ergebnisse per Telegram"
+version: "1.0.0"
+slug: "web_scraper_telegram"
+init: false
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: application
+boot: auto
+hassio_api: true
+homeassistant_api: false
+host_network: false
+options:
+  telegram_token: ""
+  chat_id: ""
+  login_url: ""
+  search_url: ""
+  username: ""
+  password: ""
+  username_field: "username"
+  password_field: "password"
+  interval_minutes: 2
+  search_phrase: "Achteraus (€)"
+schema:
+  telegram_token: str
+  chat_id: str
+  login_url: url
+  search_url: url
+  username: str
+  password: password
+  username_field: str?
+  password_field: str?
+  interval_minutes: int(1,1440)?
+  search_phrase: str?
+image: "ghcr.io/home-assistant/{arch}-addon-base-python:latest"
